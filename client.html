@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebSocket Client</title>
+</head>
+<body>
+  <h1>WebSocket Client</h1>
+  <p>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis sint dignissimos dolorem labore vitae asperiores ipsum quis maiores delectus voluptas iste iure non rem alias, minima reprehenderit, id fuga blanditiis.
+  </p>
+
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore esse quam autem rerum obcaecati iste, vero pariatur distinctio enim. Error facilis ratione iure atque architecto repudiandae nobis quam sit natus!
+  </p>
+  <div id="responses"></div>
+
+  <script>
+    const responsesDiv = document.getElementById('responses');
+    const socket = new WebSocket('ws://localhost:8080');
+ 
+    socket.onmessage = function(event) {
+      const response = event.data;
+      const responseElement = document.createElement('p');
+      responseElement.textContent = response;
+      responsesDiv.appendChild(responseElement);
+    };
+  </script>
+</body>
+</html>
